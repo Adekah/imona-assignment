@@ -21,9 +21,6 @@ public class Action {
     @Column(name = "point")
     private Long point;
 
-    @JoinColumn(name = "action_player_id")
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Player> players;
 
     public Action() {
     }
@@ -44,7 +41,4 @@ public class Action {
         return point;
     }
 
-    public List<Player> getPlayers() {
-        return players;
-    }
 }

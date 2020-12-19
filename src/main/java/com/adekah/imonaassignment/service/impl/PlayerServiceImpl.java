@@ -40,12 +40,12 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public PlayerDto update(Long id, PlayerDto player) {
         Player playerDb = playerRepository.getOne(id);
-        playerDb.setActive(player.getIs_active());
-        playerDb.setBirthCity(player.getBirth_city());
+        playerDb.setIsActive(player.getIsActive());
+        playerDb.setBirthCity(player.getBirthCity());
         playerDb.setGender(player.getGender());
         playerDb.setName(player.getName());
         playerDb.setSurname(player.getSurname());
-        playerDb.setBirthDate(player.getBirth_date());
+        playerDb.setBirthDate(player.getBirthDate());
         playerDb.setPlayerAction(actionRepository.getOne(player.getActionId()));
         playerRepository.save(playerDb);
         return player;

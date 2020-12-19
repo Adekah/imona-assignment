@@ -1,8 +1,5 @@
 package com.adekah.imonaassignment.dto;
 
-import com.adekah.imonaassignment.entity.Action;
-
-import javax.persistence.*;
 import java.util.Date;
 
 public class PlayerDto {
@@ -10,10 +7,11 @@ public class PlayerDto {
     private String name;
     private String surname;
     private String gender;
-    private Date birth_date;
-    private String birth_city;
-    private Boolean is_active;
+    private Date birthDate;
+    private String birthCity;
+    private Boolean isActive;
     private Long actionId;
+    private String playerAction;
 
     public PlayerDto() {
     }
@@ -50,35 +48,39 @@ public class PlayerDto {
         this.gender = gender;
     }
 
-    public Date getBirth_date() {
-        return birth_date;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getBirth_city() {
-        return birth_city;
+    public String getBirthCity() {
+        return birthCity;
     }
 
-    public void setBirth_city(String birth_city) {
-        this.birth_city = birth_city;
+    public void setBirthCity(String birthCity) {
+        this.birthCity = birthCity;
     }
 
-    public Boolean getIs_active() {
-        return is_active;
+    public Boolean getIsActive() {
+        return isActive;
     }
 
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     public Long getActionId() {
         return actionId;
     }
 
-    public void setActionId(Long actionId) {
-        this.actionId = actionId;
+    public String getPlayerAction() {
+        return playerAction;
+    }
+
+    public void setPlayerAction(String playerAction) {
+        this.playerAction = playerAction;
     }
 }

@@ -1,5 +1,7 @@
 package com.adekah.imonaassignment.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -28,10 +30,10 @@ public class Player {
     @Column(name = "birth_city", length = 20)
     private String birthCity;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", columnDefinition = "TINYINT(1)")
     private Boolean isActive;
 
-    @JoinColumn(name="player_action_id")
+    @JoinColumn(name = "player_action_id")
     @ManyToOne(fetch = FetchType.EAGER)// kullanıcının action'u olması gerektiği için EAGER kullanıyorum. Optional bir alan olsaydı LAZY kullanmamız daha doğru olurdu.
     private Action playerAction;
 
@@ -86,19 +88,19 @@ public class Player {
         this.birthCity = birthCity;
     }
 
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
-    public Action getPlayerAction() {
-        return playerAction;
+    public String getPlayerAction() {
+        return playerAction.getName();
     }
 
     public void setPlayerAction(Action playerAction) {
         this.playerAction = playerAction;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+       this.isActive = isActive;
     }
 }
