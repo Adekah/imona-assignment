@@ -8,5 +8,12 @@ public final class ApiPaths {
         public static final String CTRL = BASE_PATH + "/action";
     }
 
+    public static final class GameController {
+        public static final String CTRL = BASE_PATH + "/game";
+    }
+
+    public static final class PlayerController {
+        public static final String CTRL = BASE_PATH + "/player";
+    }
 }
 

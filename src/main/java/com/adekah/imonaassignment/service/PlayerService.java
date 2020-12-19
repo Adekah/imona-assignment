@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PlayerService {
 
-    List<PlayerDto> findAll(Sort sort);
+    List<PlayerDto> findAll();
 
     Boolean delete(Long id);
 

@@ -3,7 +3,7 @@ package com.adekah.imonaassignment.dto;
 
 public class ActionDto {
 
-    private Long id;
+
     private String name;
     private String description;
     private Long point;
@@ -11,13 +11,6 @@ public class ActionDto {
     public ActionDto() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

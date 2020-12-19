@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class ActionServiceImpl implements ActionService {
 
-
     private final ActionRepository actionRepository;
     private final ModelMapper modelMapper;
 
