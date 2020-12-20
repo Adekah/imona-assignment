@@ -1,6 +1,6 @@
 <template>
     <div style="margin-left: auto;background: linear-gradient(to right, #f12711, #f5af19);">
-        <bootstrap-vue-datatable :posts="posts">{{posts}}</bootstrap-vue-datatable>
+        <player-datatable :posts="posts">{{posts}}</player-datatable>
         <b-button variant="info" @click="getPlayers">Get All Players</b-button>
 
 
@@ -40,19 +40,18 @@
                 <b-button type="submit" variant="primary">Add New Player</b-button>
             </b-form>
         </div>
-
     </div>
 </template>
 
 <script>
 
-    import BootstrapVueDatatable from "@/components/BootstrapVueDatatable";
+    import PlayerDatatable from "@/components/PlayerDatatable";
     import axios from "axios";
-
+    import Vue from 'vue'
     export default {
         name: "Player",
         components: {
-            BootstrapVueDatatable
+            PlayerDatatable
         },
         data: () => ({
             posts: [],
@@ -89,19 +88,29 @@
                 axios.post("http://localhost:8000/api/player", this.playerDto)
                     .then(response => {
                         console.log(response.data)
-                    })
-                    .catch(response => {
-
-                        alert(response + " "+this.playerDto)
+                        Vue.$toast.open({
+                            message: 'New player successfully added',
+                            type: 'success',
+                            position:'top-right'
+                            // all of other options may go here
+                        });
                     })
             },
             getPlayers() {
                 axios.get("http://localhost:8000/api/player")
                     .then(response => {
                         this.posts = response.data
+                        Vue.$toast.open({
+                            message: 'All players successfully fetched',
+                            type: 'success',
+                            position:'top-right'
+                            // all of other options may go here
+                        });
                     })
-            },
-
+            }
+        },
+        created() {
+            //TODO actionOptions;
         }
 
     }

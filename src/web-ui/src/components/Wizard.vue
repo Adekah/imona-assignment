@@ -19,7 +19,6 @@
     import Action from "@/components/Action";
 
     export default {
-        name: 'HelloWorld',
         components: {
             FormWizard,
             TabContent,
@@ -30,11 +29,11 @@
         props: {
             title: {
                 type: String,
-                default: 'Awesome Wizard'
+                default: 'Imono Assignment'
             },
             subtitle: {
                 type: String,
-                default: 'Split a complicated flow in multiple steps'
+                default: 'this wizard is great'
             },
             nextButtonText: {
                 type: String,

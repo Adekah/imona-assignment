@@ -39,11 +39,12 @@
 
 <script>
     import axios from "axios";
+    import Vue from 'vue'
 
     export default {
         props: ["posts"],
         data: () => ({
-            fields: ["name", "surname", "gender","birthCity", "birthDate","playerAction","score","isActive", "edit", "delete"],
+            fields: ["name", "surname", "gender", "birthCity", "birthDate", "playerAction", "score", "isActive", "edit", "delete"],
             perPage: 10,
             currentPage: 1,
             filter: ""
@@ -56,13 +57,19 @@
         methods: {
             deleteItem(id) {
                 console.log(id)
-                axios.delete("http://localhost:8000/api/player/"+id)
+                axios.delete("http://localhost:8000/api/player/" + id)
                     .then(response => {
                         console.log(response.data)
+                        Vue.$toast.open({
+                            message: 'Player successfully deleted',
+                            type: 'success',
+                            position: 'top-right'
+                            // all of other options may go here
+                        });
                     })
             },
             editItem() {
-            //todo
+                //todo Edit Player
             }
         }
     };

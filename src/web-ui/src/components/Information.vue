@@ -8,6 +8,7 @@
 
 <script>
     import axios from "axios";
+    import Vue from "vue";
 
     export default {
         name: "information",
@@ -25,7 +26,11 @@
                     console.log(response.data)
                     this.gameInformation = response.data
                     this.gameLogo = response.data.logo
-
+                    Vue.$toast.open({
+                        message: 'Game Informations fetched',
+                        type: 'success',
+                        position: 'top-right'
+                    });
                 })
         }
     }
