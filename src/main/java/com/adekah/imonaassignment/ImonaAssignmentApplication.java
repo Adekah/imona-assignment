@@ -5,15 +5,17 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+//@EnabledSwagger2 todo
 public class ImonaAssignmentApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ImonaAssignmentApplication.class, args);
 	}
 
-	@Bean // burayı araştır!!!
+	@Bean
 	public ModelMapper getModelMapper() {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
