@@ -5,9 +5,21 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
-        name: "Action"
+        name: "Action",
+        created() {
+            axios.get("http://localhost:8000/api/action")
+                .then(response => {
+                    console.log(response.data)
+                    this.gameInformation = response.data
+                    this.gameLogo = response.data.logo
+
+                })
+        }
     }
+
 </script>
 
 <style scoped>

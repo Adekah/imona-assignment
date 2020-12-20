@@ -1,22 +1,45 @@
 <template>
-    <div style="margin-left: auto;padding: 20px;background: linear-gradient(to right,#f5af19, #f12711);">
-        <img alt="Vue logo" src="../assets/logo.png">
-        <h2>Efsane bir oyun </h2>
-        <label>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially
-            unchanged.</label>
+    <div id="information">
+        <img src="../assets/logo.png"/>
+        <h2>{{gameInformation.name}}</h2>
+        <label>{{gameInformation.description}}</label>
     </div>
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
-        name: "information"
+        name: "information",
+        data() {
+            return {
+                gameInformation: {},
+                gameLogo: {
+                    logo: 'logo.png'
+                }
+            }
+        },
+        created() {
+            axios.get("http://localhost:8000/api/game/1")
+                .then(response => {
+                    console.log(response.data)
+                    this.gameInformation = response.data
+                    this.gameLogo = response.data.logo
+
+                })
+        }
     }
+
+
 </script>
 
 <style scoped>
+
+    #information {
+        margin-left: auto;
+        padding: 20px;
+        background: linear-gradient(to right, #f5af19, #f12711);
+
+    }
 
 </style>

@@ -33,6 +33,9 @@ public class Player {
     @Column(name = "is_active", columnDefinition = "TINYINT(1)")
     private Boolean isActive;
 
+    @Column(name="score")
+    private Long score;
+
     @JoinColumn(name = "player_action_id")
     @ManyToOne(fetch = FetchType.EAGER)// kullanıcının action'u olması gerektiği için EAGER kullanıyorum. Optional bir alan olsaydı LAZY kullanmamız daha doğru olurdu.
     private Action playerAction;
@@ -102,5 +105,13 @@ public class Player {
 
     public void setIsActive(Boolean isActive) {
        this.isActive = isActive;
+    }
+
+    public Long getScore() {
+        return score;
+    }
+
+    public void setScore(Long score) {
+        this.score = score;
     }
 }

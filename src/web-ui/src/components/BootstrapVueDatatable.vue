@@ -27,7 +27,8 @@
                         v-model="currentPage"
                         :total-rows="rows"
                         :per-page="perPage" aria-controls="my-table"></b-pagination>
-                <b-button variant="success" @click="deleteItem(data.item.id)">---Add New Recod---</b-button>
+
+
             </b-col>
 
         </b-row>
@@ -37,10 +38,12 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         props: ["posts"],
         data: () => ({
-            fields: ["userId", "id", "title", "edit","delete"],
+            fields: ["name", "surname", "gender","birthCity", "birthDate","playerAction","score","isActive", "edit", "delete"],
             perPage: 10,
             currentPage: 1,
             filter: ""
@@ -52,16 +55,14 @@
         },
         methods: {
             deleteItem(id) {
-                const index = this.posts.indexOf(x => x.id === id);
-                this.posts.splice(index, 1);
+                console.log(id)
+                axios.delete("http://localhost:8000/api/player/"+id)
+                    .then(response => {
+                        console.log(response.data)
+                    })
             },
-            editItem(id) {
-                const index = this.posts.indexOf(x => x.id === id);
-                this.posts.splice(index, 1);
-            },
-            addItem(id) {
-                const index = this.posts.indexOf(x => x.id === id);
-                this.posts.splice(index, 1);
+            editItem() {
+            //todo
             }
         }
     };

@@ -7,6 +7,7 @@ public class ActionDto {
     private String name;
     private String description;
     private Long point;
+    private Long id;
 
     public ActionDto() {
     }
@@ -34,5 +35,13 @@ public class ActionDto {
 
     public void setPoint(Long point) {
         this.point = point;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

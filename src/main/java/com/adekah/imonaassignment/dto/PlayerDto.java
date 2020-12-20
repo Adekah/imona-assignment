@@ -12,6 +12,7 @@ public class PlayerDto {
     private Boolean isActive;
     private Long actionId;
     private String playerAction;
+    private Long score;
 
     public PlayerDto() {
     }
@@ -82,5 +83,13 @@ public class PlayerDto {
 
     public void setPlayerAction(String playerAction) {
         this.playerAction = playerAction;
+    }
+
+    public Long getScore() {
+        return score;
+    }
+
+    public void setScore(Long score) {
+        this.score = score;
     }
 }

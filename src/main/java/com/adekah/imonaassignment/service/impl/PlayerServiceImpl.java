@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
@@ -45,6 +46,7 @@ public class PlayerServiceImpl implements PlayerService {
         playerDb.setGender(player.getGender());
         playerDb.setName(player.getName());
         playerDb.setSurname(player.getSurname());
+        playerDb.setScore(player.getScore());
         playerDb.setBirthDate(player.getBirthDate());
         playerDb.setPlayerAction(actionRepository.getOne(player.getActionId()));
         playerRepository.save(playerDb);
