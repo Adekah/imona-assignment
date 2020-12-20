@@ -4,6 +4,8 @@
             <h2> Action List </h2>
 
             <b-row>
+              <b-table striped
+                       hover
                 <b-col>
                     <b-table striped
                              hover
@@ -12,19 +14,13 @@
                              :fields="fields">
                     </b-table>
                 </b-col>
-
             </b-row>
-
         </div>
-
     </div>
-
-
-
-
 </template>
 
 <script>
+//http requestlerin  gönderilmesi işi burada yapılacak todo
     import axios from "axios";
 
     export default {
@@ -43,7 +39,5 @@
     }
 
 </script>
-
 <style scoped>
-
 </style>
