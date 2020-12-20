@@ -1,18 +1,17 @@
 <template>
   <div>
-    <HelloWorld id="app"/>
+    <wizard id="app"/>
 
   </div>
 </template>
 
 <script>
-  import HelloWorld from './components/HelloWorld.vue'
-
+  import Wizard from './components/Wizard.vue'
 
   export default {
     name: 'App',
     components: {
-      HelloWorld
+      Wizard
     }
 
 
